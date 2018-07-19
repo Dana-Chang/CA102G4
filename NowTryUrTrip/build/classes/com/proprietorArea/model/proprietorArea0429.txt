@@ -1,0 +1,53 @@
+DROP TABLE SPOT;
+DROP TABLE proprietorArea;
+DROP SEQUENCE spot_seq;
+DROP SEQUENCE proprietorArea_seq;
+
+CREATE TABLE spot(
+spotNo   number(5)NOT NULL,
+spotType varchar2(10),
+spotName varchar2(50),
+spotLong varchar2(100),
+spotLat  varchar2(100),
+
+CONSTRAINT spot_PRIMARY_KEY PRIMARY KEY (spotNo)
+);
+
+CREATE SEQUENCE spot_seq
+INCREMENT BY 5
+START WITH 5
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+INSERT INTO spot VALUES (spot_seq.NEXTVAL,'1','陽明山','25.194246','121.560936');
+INSERT INTO spot VALUES (spot_seq.NEXTVAL,'0','國立故宮博物院','25.102355','121.548493');
+INSERT INTO spot VALUES (spot_seq.NEXTVAL,'0','安平古堡','23.001509','120.160624');
+INSERT INTO spot VALUES (spot_seq.NEXTVAL,'0','台北101大樓','25.033964','121.564472');
+INSERT INTO spot VALUES (spot_seq.NEXTVAL,'1','台中薰衣草森林(新社)','24.128475','120.841317');
+
+CREATE TABLE proprietorArea (
+pprMsgeNo             number(5)NOT NULL,
+pprSpotNo                number(10)NOT NULL,
+pprCheckIn	             timestamp,
+pprCheckOut	             timestamp,
+pprMsgeCtx               varchar2(600),
+pprMsgeImg		           blob,
+
+CONSTRAINT proprietorArea_pprSpotNo_FK FOREIGN KEY (pprSpotNo)
+ 				       REFERENCES spot(spotNo),
+CONSTRAINT proprietorArea_PRIMARY_KEY PRIMARY KEY (pprMsgeNo,pprSpotNo)
+);
+
+CREATE SEQUENCE proprietorArea_seq
+INCREMENT BY 2
+START WITH 100
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+INSERT INTO proprietorArea VALUES (proprietorArea_seq.NEXTVAL,5,TO_DATE('2016-11-17 20:02:02','YYYY-MM-DD HH24:MI:SS'),TO_DATE('2016-11-21 20:02:02','YYYY-MM-DD HH24:MI:SS'),'陽明山地區早自日據時期即為「大屯國立公園」預定地；當時範圍包括七星山、大屯山區及觀音山等地。民國52年，陽明山公園及鄰近七星山、大屯山、金山、野柳與富貴角等地區，合併為「陽明國家公園」，面積約28,400公頃。民國74年，正式公告實施陽明山國家公園計劃，同年9月16日及翌年3月13日先後成立國家公園管理處及警察隊，積極推展各項經營管理業務，直到現在成為大家熟知的陽明山國家公園。',null);
+INSERT INTO proprietorArea VALUES (proprietorArea_seq.NEXTVAL,10,TO_DATE('2016-11-18 20:11:02','YYYY-MM-DD HH24:MI:SS'),TO_DATE('2016-11-22 21:22:02','YYYY-MM-DD HH24:MI:SS'),'今日的故宮博物院承先啟後，再造新局不僅代表中華歷史的傳承展望未來更是與當代社會文化脈絡連結的新起點.承襲自宋、元、明、清歷代宮廷收藏的文物，首次呈現在世人眼前。',null);
+INSERT INTO proprietorArea VALUES (proprietorArea_seq.NEXTVAL,15,TO_DATE('2016-12-17 12:02:02','YYYY-MM-DD HH24:MI:SS'),TO_DATE('2016-12-26 05:02:02','YYYY-MM-DD HH24:MI:SS'),'目前立於古堡殘跡平臺上的洋樓建築是由1930年日本海關宿舍改建而成，內容包括：安平廟宇古蹟分布圖、荷人的對外貿易、鄭氏史蹟、鄭荷條約、沈葆楨在臺事略等圖文資料；同時還展有熱蘭遮城、德記洋行、東興洋行、海山館、單伸手民宅等的模型。',null);
+INSERT INTO proprietorArea VALUES (proprietorArea_seq.NEXTVAL,20,TO_DATE('2016-10-10 17:02:02','YYYY-MM-DD HH24:MI:SS'),TO_DATE('2016-10-17 14:02:02','YYYY-MM-DD HH24:MI:SS'),'AIPEI101以節節攀升的高度，象徵台灣在新世紀中的全新視界！超越單一量體的設計觀，以中國人的吉祥數字八「發」的諧音做為設計單位，以8層樓為一結構單元，彼此接續，層層相疊，建築整體。在外觀上形成有節奏的律動美感，開創國際摩天大樓新風格。',null);
+INSERT INTO proprietorArea VALUES (proprietorArea_seq.NEXTVAL,spot_seq.CURRVAL,TO_DATE('2016-08-17 20:02:02','YYYY-MM-DD HH24:MI:SS'),TO_DATE('2016-08-26 12:00:00','YYYY-MM-DD HH24:MI:SS'),'紫色夢幻世界‧新社薰衣草森林原產地在地中海地區的薰衣草，為一香草植物，古羅馬人將它用來薰香沐浴，用以驅除昆蟲或治療昆蟲的咬傷。這樣一種外來植物我們是這樣無可救藥的愛戀咖啡、愛戀旅行、愛戀流逝而過的光影與氣味，並用畫筆與音符留住這些心情與故事！',null);

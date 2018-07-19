@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Title Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" type="text/css" href="chatroom.css">
+    <style type="text/css">
+    .navbar {
+        background: #2980B9 no-repeat center top;
+        background-size: 100%
+    }
+    
+    .jumbotron {
+        background-size: cover;
+        color: lightblue;
+        background-size: 100% 100%;
+        margin: 0;
+        padding: 0;
+        background: #2980B9 no-repeat center top;
+        background-size: 100%
+    }
+    
+    body {
+        background-color: #ECF0F1;
+    }
+    
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #2C3E50;
+    }
+    
+    .day_close {
+        float: right;
+        cursor: pointer;
+    }
+    
+    .day_add {
+        float: right;
+        cursor: pointer;
+    }
+    
+    .chat_box {
+        z-index: 10;
+    }
+    
+    .msg_box {
+        z-index: 10;
+    }
+    
+    .cc {
+        background-color: lightblue;
+    }
+    
+    #map {
+        height: 500px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- navbar -->
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <div class="jumbotron">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3">
+                                <img src="https://api.fnkr.net/testimg/200x150/00CED1/FFF/?text=img+placeholder" class="img-responsive"></div>
+                            <div class="col-xs-12 col-sm-9">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2" style="text-align: center;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">選單切換</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!-- 手機隱藏選單區結束 -->
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <!-- 手機隱藏選單區 -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+                        <!-- 左選單 -->
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" style="color:#fff">景點</a></li>
+                            <li><a href="#" style="color:#fff">行程</a></li>
+                            <li><a href="#" style="color:#fff">部落格</a></li>
+                            <li><a href="#" style="color:#fff">代購</a></li>
+                        </ul>
+                        <!-- 搜尋表單 -->
+                        <div class="row">
+                            <div class="input-group" role="search" style="margin-top: 7px">
+                                <div class="input-group-btn" style="border:solid 1px #888">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        地區 <i class="glyphicon glyphicon-chevron-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">台北</a></li>
+                                        <li><a href="#">桃園</a></li>
+                                        <li><a href="#">台南</a></li>
+                                    </ul>
+                                </div>
+                                <div class="input-group-btn" style="border:solid 1px #888">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        選擇類型 <i class="glyphicon glyphicon-chevron-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">景點</a></li>
+                                        <li><a href="#">飯店</a></li>
+                                        <li><a href="#">餐廳</a></li>
+                                        <li><a href="#">行程</a></li>
+                                        <li><a href="#">部落格</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">代購</a></li>
+                                    </ul>
+                                </div>
+                                <input type="text" class="form-control" placeholder="請輸入景點">
+                                <span class="input-group-btn"><button type="submit" class="btn btn-default">搜尋</button></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右選單 -->
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" style="color:#fff">Amos 您好</a></li>
+                        <li><a href="#" style="color:#fff" data-toggle="modal" data-target="#login-modal">登出</a></li>
+                        <li><a href="#" style="color:#fff">個人設定</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #fff">繁體中文 <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">繁體中文</a></li>
+                                <li><a href="#">English</a></li>
+                                <li><a href="#">日本語</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid  content">
+        <div class="row">
+            <div class="col-xs-12 col-sm-1 "></div>
+            <div class="col-xs-12 col-sm-2 aa">
+                <!-- 景點搜尋 -->
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="請輸入景點" onFocus="geolocate()" id="autocomplete">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="button" id="searchView">搜尋</button>
+                    </span>
+                </div>
+                <!-- 景點列表
+ -->
+                <div class="list-group attractions">
+                    <a href="#" class="list-group-item active">lalaKitchen新美式餐廳24.966937, 121.190800</a>
+                    <a href="#" class="list-group-item">幸福時刻波蘭餐廳24.964386, 121.191136</a>
+                    <a href="#" class="list-group-item">Daddy's 美式餐廳24.963595, 121.190650</a>
+                    <a href="#" class="list-group-item">好兇蛋餅24.965302, 121.193517</a>
+                    <a href="#" class="list-group-item">麥克小姐24.964321, 121.190538</a>
+                    <a href="#" class="list-group-item">紅樓24.964691, 121.190764</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6" id="map">
+            </div>
+            <div class="col-xs-12 col-sm-2 cc">
+                <!-- 我的行程 -->
+                <div class="panel panel-group panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">我的行程<div class="day_add">+</div></h3>
+                    </div>
+                </div>
+                <div class="panel-body schedule">
+                    <div class="panel panel-group panel-primary">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#cc1" aria-expanded="false" aria-controls="#cc1">第一天
+                            <div class="day_close">x</div>
+                        </div>
+                        <div class="panel-body list-group plainList collapse" id="cc1">
+                            <a href="#" class="list-group-item active">
+                                <h4 class="list-group-item-heading">行程景點 1</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 2</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 3</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 4</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 5</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 6</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 7</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 8</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel panel-group panel-primary">
+                        <div class="panel-heading" data-toggle="collapse" data-target="#cc2" aria-expanded="false" aria-controls="#cc2">第二天
+                            <div class="day_close">x</div>
+                        </div>
+                        <div class="panel-body list-group plainList collapse" id="cc2">
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 9</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 10</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 11</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 12</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">行程景點 13</h4>
+                                <p class="list-group-item-text">預計停留30分鐘</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-1 cc">
+        <div class="chat_box">
+            <div class="chat_head"> Chat Box</div>
+            <div class="chat_body">
+                <div class="user"> Krishna Teja</div>
+            </div>
+        </div>
+        <div class="msg_box" style="right:290px">
+            <div class="msg_head">Krishna Teja
+                <div class="close">x</div>
+            </div>
+            <div class="msg_wrap">
+                <div class="msg_body">
+                    <div class="msg_a">This is from A </div>
+                    <div class="msg_b">This is from B, and its amazingly kool nah... i know it even i liked it :)</div>
+                    <div class="msg_a">Wow, Thats great to hear from you man </div>
+                    <div class="msg_push"></div>
+                </div>
+                <div class="msg_footer">
+                    <textarea class="msg_input" rows="4"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted" style="color: #fff;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus temporibus eaque reprehenderit, qui repudiandae quis magni unde quas enim est.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".attractions>a").click(function(e) {
+        $(".attractions>a.active").removeClass("active");
+        $(this).attr("class", "list-group-item active");
+        e.preventDefault();
+        // 避免跳回頂端
+    });
+    $(".plainList>a").click(function(e) {
+        $(".plainList>a.active").removeClass("active");
+        $(this).attr("class", "list-group-item active");
+        e.preventDefault();
+        // 避免跳回頂端
+    });
+    $(".day_close").click(function(e) {
+        $(this).parent().parent().hide();
+        e.preventDefault();
+    });
+    $(".day_add").click(function(e) {
+        $(schedule).parent().parent().hide();
+        e.preventDefault();
+    });
+    $(".content").css('padding-top', $(".navbar").height());
+    $(".content").css('padding-bottom', $(".footer").height());
+});
+$(window).resize(function() {
+    $(".content").css('padding-top', $(".navbar").height());
+    $(".content").css('padding-bottom', $(".footer").height());
+});
+
+
+
+var placeSearch, autocomplete;
+var componentForm = {
+    street_number: 'short_name',
+    route: 'long_name',
+    locality: 'long_name',
+    administrative_area_level_1: 'short_name',
+    country: 'long_name',
+    postal_code: 'short_name'
+};
+
+function initAutocomplete() {
+    var contentString =
+        '<p>資策會中壢 TibaMe 國際人才發展中心 </p>' +
+        '<div>資策會數位教育研究所國際人才發展中心位於國立中央大學校區內， 於 1984年成立， 已三十餘年， 其成立宗旨以辦理資訊人才推廣與資訊軟體研究發展為主； 資訊人才推廣係與中央大學合作， 並秉持資策會優良的傳統， 加上在地用心經營， 國際人才發展中心已成為北台灣地區資訊人才培訓的重要據點。 2016 年起， 與緯創集團緯育公司策略聯盟， 持續深化「 就業、 增能」 學習服務， 促進人才的匯集與再造， 開啟雲端教育新的里程碑。<br/></div>';
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+    var myPosition = new google.maps.LatLng(24.967750, 121.191733);
+    var newPosition = new google.maps.LatLng(22.639752, 120.302021);
+    var options = {
+        zoom: 14,
+        center: myPosition,
+        clickableIcons: true,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+        }
+
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), options);
+
+    var marker = new google.maps.Marker({
+        title: '中壢資策會',
+        position: myPosition,
+        map: map
+    });
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+    // Create the autocomplete object, restricting the search to geographical
+    // location types.
+    autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */
+        (document.getElementById('autocomplete')), {
+            types: ['geocode']
+        });
+
+    // When the user selects an address from the dropdown, populate the address
+    // fields in the form.
+    autocomplete.addListener('place_changed', fillInAddress);
+    document.getElementById("searchView").addEventListener('click', function() {
+        map.setCenter(newPosition);
+    });
+    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    var icons = {
+        Restaurant: {
+            name: 'restaurant',
+            icon: 'restaurant.png'
+        }
+    };
+
+    function addMarker(feature) {
+        var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+        });
+    }
+
+    var features = [{
+        position: new google.maps.LatLng(24.966937, 121.190800),
+        type: 'Restaurant'
+    }, {
+        position: new google.maps.LatLng(24.964386, 121.191136),
+        type: 'Restaurant'
+    }, {
+        position: new google.maps.LatLng(24.963595, 121.190650),
+        type: 'Restaurant'
+    }, {
+        position: new google.maps.LatLng(24.965302, 121.193517),
+        type: 'Restaurant'
+    }, {
+        position: new google.maps.LatLng(24.964321, 121.190538),
+        type: 'Restaurant'
+    }, {
+        position: new google.maps.LatLng(24.964691, 121.190764),
+        type: 'Restaurant'
+    }];
+
+    for (var i = 0, feature; feature = features[i]; i++) {
+        addMarker(feature);
+    }
+}
+
+function fillInAddress() {
+    // Get the place details from the autocomplete object.
+    var place = autocomplete.getPlace();
+
+    for (var component in componentForm) {
+        document.getElementById(component).value = '';
+        document.getElementById(component).disabled = false;
+    }
+
+    // Get each component of the address from the place details
+    // and fill the corresponding field on the form.
+    for (var i = 0; i < place.address_components.length; i++) {
+        var addressType = place.address_components[i].types[0];
+        if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+        }
+    }
+}
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+                center: geolocation,
+                radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+        });
+    }
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHV7GxAc0IWzZQ1bTnAkWlrhI5gdGISsw&libraries=places&callback=initAutocomplete" async defer></script>
+<script src="chatroom.js"></script>

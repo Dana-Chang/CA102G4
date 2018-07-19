@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Title Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <style type="text/css">
+    .jumbotron {
+        background-image: url('43203044_p0.jpg');
+        background-size: cover;
+    }
+    
+    .container {
+        background-size: cover;
+    }
+    
+    /*.aa {
+        background-color: red;
+    }
+    
+    .bb {
+        background-color: blue;
+    }
+    
+    .cc {
+        background-color: green;
+    }*/
+    .product{
+        text-align: center;  
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">選單切換</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">CSS可樂</a>
+            </div>
+            <!-- 手機隱藏選單區 -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <!-- 左選單 -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">關於CSS可樂</a></li>
+                    <li><a href="#">CSS教學</a></li>
+                    <li><a href="#">CSS範例</a></li>
+                    <li><a href="#">原創CSS</a></li>
+                </ul>
+                <!-- 搜尋表單 -->
+                <form class="navbar-form navbar-left" role="search">
+                    <!-- <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="請輸入關鍵字">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">搜尋</button> -->
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="請輸入關鍵字">
+                        <span class="input-group-btn">
+                                        <button class="btn btn-info" type="button">搜尋</button>
+                                      </span>
+                    </div>
+                </form>
+                <!-- 右選單 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Amos 您好</a></li>
+                    <li><a href='#modal-id' data-toggle="modal" class="btn btn-default">登入</a></li>
+                    <li><a href="#">個人設定</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">繁體中文 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">繁體中文</a></li>
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">日本語</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- 手機隱藏選單區結束 -->
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>代購</h1>
+            <p>歡迎加入 http://NowTryUrTrip.com/</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">詳細內容</a></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">首頁</a>
+                    </li>
+                    <li>
+                        <a href="#">代購</a>
+                    </li>
+                    <li class="active">代購</li>
+                </ol>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">代購需知</h3>
+                    </div>
+                    <div class="panel-body">
+                        評級記得桌面便宜等方，簽名歡迎您他們故意下來配件厲害誠信熟悉並不日記我想需求加，工藝任務選擇提示信。
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">熱門排行</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" type="button" data-toggle="collapse" data-target="#aaa" aria-expanded="false" aria-controls="#aaa">
+                                    <h4 class="panel-title">
+               <a role="button">北區排行</a>  
+       
+      </h4>
+                                </div>
+                                <div class="collapse" id="aaa">
+                                    <div class="panel-body">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">商品1</a>
+                                            <a href="#" class="list-group-item">商品2</a>
+                                            <a href="#" class="list-group-item">商品3</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" type="button" data-toggle="collapse" data-target="#bbb" aria-expanded="false" aria-controls="#bbb">
+                                    <h4 class="panel-title">
+        <a role="button" >
+          中區排行
+        </a>
+      </h4>
+                                </div>
+                                <div class="collapse" id="bbb">
+                                    <div class="panel-body">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">商品1</a>
+                                            <a href="#" class="list-group-item">商品2</a>
+                                            <a href="#" class="list-group-item">商品3</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" type="button" data-toggle="collapse" data-target="#ccc" aria-expanded="false" aria-controls="#ccc">
+                                    <h4 class="panel-title">
+        <a role="button" >
+          南區排行
+        </a>
+      </h4>
+                                </div>
+                                <div class="collapse" id="ccc">
+                                    <div class="panel-body">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">商品1</a>
+                                            <a href="#" class="list-group-item">商品2</a>
+                                            <a href="#" class="list-group-item">商品3</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-9 cc">
+                <div id="carousel-id" class="carousel slide" data-ride="carousel">
+                    <!-- 幻燈片小圓點區 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+                        <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+                        <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+                    </ol>
+                    <!-- 幻燈片主圖區 -->
+                    <div class="carousel-inner">
+                        <div class="item">
+                            <img src="https://api.fnkr.net/testimg/2800x700/aaaaaa" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>CSS可樂好喝超爽快</h1>
+                                    <p>你喝過了嗎？</p>
+                                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="https://api.fnkr.net/testimg/2800x700/aaaaaa" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>CSS可樂的外掛真方便</h1>
+                                    <p>你安裝了嗎？</p>
+                                    <p><a class="btn btn-lg btn-primary" href="#" role="button">更多</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item active">
+                            <img src="https://api.fnkr.net/testimg/2800x700/aaaaaa" alt="">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1>我是標題喔～自己改文案吧</h1>
+                                    <p>我是內文喔，你可以把字打在這裡呦</p>
+                                    <p><a class="btn btn-lg btn-primary" href="#" role="button">詳細內容</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 上下頁控制區 -->
+                    <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                <P class="well">並非定位在他上帝會議完整集團平均插入達到體育車，一人環保居住綠色房產硬件姓名像素一隻只好害怕快捷某種在這激，每日等等寬頻在線承諾最
+                </P>
+                <div class="row flowclean">
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="item flowobj">
+                            <img src="https://api.fnkr.net/testimg/300x200/00CED1/FFF/?text=img+placeholder" class="img-responsive">
+                            <h3 class="product">商品</h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="item flowobj">
+                            <img src="https://api.fnkr.net/testimg/300x200/00CED1/FFF/?text=img+placeholder" class="img-responsive">
+                            <h3 class="product">商品</h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="item flowobj">
+                            <img src="https://api.fnkr.net/testimg/300x200/00CED1/FFF/?text=img+placeholder" class="img-responsive">
+                            <h3 class="product">商品</h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="item flowobj">
+                            <img src="https://api.fnkr.net/testimg/300x200/00CED1/FFF/?text=img+placeholder" class="img-responsive">
+                            <h3 class="product">商品</h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="item flowobj">
+                            <img src="https://api.fnkr.net/testimg/300x200/00CED1/FFF/?text=img+placeholder" class="img-responsive">
+                            <h3 class="product">商品</h3>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="item flowobj">
+                            <img src="https://api.fnkr.net/testimg/300x200/00CED1/FFF/?text=img+placeholder" class="img-responsive">
+                            <h3 class="product">商品</h3>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row product">
+                    <ul class="pagination pagination-lg">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li class="active"><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </div>
+               
+                <ul class="pager bb">
+                    <li class="previous"><a href="#">&larr; 上一頁</a></li>
+                    <li class="next"><a href="#">下一頁 &rarr;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

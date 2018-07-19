@@ -1,0 +1,341 @@
+DROP sequence MEMB_seq;
+DROP sequence record_seq;
+DROP sequence MGR_seq;
+DROP sequence NotPr_seq;
+DROP sequence report_seq;
+
+DROP TABLE STOREINF;
+DROP TABLE friend;
+DROP TABLE memImproperRprt;
+DROP TABLE memRecord;
+DROP TABLE manager;
+DROP TABLE MEMBER;
+
+------------------------------------------------------------
+create sequence report_seq
+start with 1
+increment by 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+-----------------------------------------------------------
+create sequence record_seq
+start with 1
+increment by 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+------------------------------------------------------------
+create sequence MEMB_seq
+start with 1001
+increment by 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+------------------------------------------------------------
+create sequence MGR_seq
+start with 7001
+increment by 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+-------------------------------------------------------------
+create sequence NotPr_seq
+start with 1
+increment by 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+------------------------------------------------------------------
+create table MEMBER
+(
+memId     NUMBER(4) not null,
+memName   VARCHAR2(20),
+memEmail  VARCHAR2(60),
+memPsw    VARCHAR2(10),
+memGender NUMBER(1),
+memType   NUMBER(1),
+memStatus NUMBER default 1 not null,
+memCell   VARCHAR2(10),
+memTel    VARCHAR2(15),
+memAdd    VARCHAR2(120),
+memBop    NUMBER(10),
+memCb     NUMBER(10),
+memTdp    NUMBER(10),
+memDm     VARCHAR2(1) default 0 not null,
+memNomd   NUMBER(1),
+memPf     VARCHAR2(1) default 0 not null,
+memPtnor  NUMBER(1),
+memTaiv   VARCHAR2(1) default 1 not null,
+memBp     NUMBER(10),
+memPorder NUMBER(10),
+memSp     NUMBER(10),
+memOrderm NUMBER(10),
+memMtv    NUMBER default 0 not null,
+memImg    blob,
+CONSTRAINT MEMBER_MEMID_PK PRIMARY KEY (memId)
+);
+
+INSERT INTO MEMBER VALUES(MEMB_seq.NEXTVAL,
+'王大陸',
+'leekv820309@gmail.com',
+'123',
+2,
+'2',
+1,
+'0958395852',
+'(03)-4091109',
+'桃園市龍潭區凌雲村竹源街118號',
+20000,
+2000,
+500,
+0,
+0,
+0,
+0,
+1,
+1000,
+100,
+1500,
+15,
+0,
+null); 
+
+INSERT INTO MEMBER VALUES(MEMB_seq.NEXTVAL,
+'王小陸',
+'chenrice111@gmail.com',
+'123',
+1,
+'1',
+1,
+'0916822358',
+'(03)-29498323',
+'新北市永和區中正路10巷120號',
+10000,
+2000,
+1500,
+1,
+1,
+1,
+1,
+0,
+4000,
+5,
+2500,
+7,
+1,
+null);
+
+INSERT INTO MEMBER VALUES(MEMB_seq.NEXTVAL,
+'張三豐',
+'andy@gmail.com',
+'123',
+1,
+'1',
+1,
+'0933956214',
+'(07)-7895232',
+'高雄市鳳山區忠誠路102巷4號',
+1000,
+2000,
+1500,
+1,
+1,
+1,
+1,
+0,
+250,
+5,
+100,
+7,
+1,
+null);
+
+INSERT INTO MEMBER VALUES(MEMB_seq.NEXTVAL,
+'美麗',
+'sara@gmail.com',
+'123',
+1,
+'1',
+1,
+'0975685295',
+'(05)-5615895',
+'雲林縣崙背鄉羅厝村東興182-32號',
+1300,
+0,
+0,
+0,
+2,
+0,
+1,
+1,
+0,
+0,
+100,
+2,
+0,
+null);
+
+INSERT INTO MEMBER VALUES(MEMB_seq.NEXTVAL,
+'帥帥',
+'hihi@gmail.com',
+'123',
+1,
+'1',
+1,
+'0945856745',
+'(05)-2568465',
+'嘉義市東區共和路382號',
+0,
+0,
+0,
+1,
+1,
+1,
+1,
+0,
+0,
+0,
+0,
+0,
+0,
+null);
+COMMIT;
+----------------------------------------------------------------------
+CREATE TABLE STOREINF
+(
+memId       NUMBER NOT NULL ,
+uniformNum  NUMBER(8),
+principal   VARCHAR2(10),
+storCall    VARCHAR2(15),
+storAdd     VARCHAR2(120),
+postalCode  NUMBER(3) NOT NULL,
+category    NUMBER(1)
+);
+
+ALTER TABLE STOREINF ADD
+CONSTRAINT STOREINF_memId_pk PRIMARY KEY (memId);
+
+ALTER TABLE STOREINF ADD
+CONSTRAINT STOREINF_memId_fk  
+FOREIGN KEY (memId)
+REFERENCES MEMBER(memId);
+
+INSERT INTO STOREINF VALUES(1001,35456654,'王大陸',
+'0958395852','桃園市龍潭區凌雲村竹源街118號',
+325,1);
+COMMIT;
+----------------------------------------------------------------------
+create table manager
+(
+mgrId        NUMBER(4) not null,
+mgrName      VARCHAR2(20),
+mgrAccount   VARCHAR2(60),
+mgrPsw       VARCHAR2(15),
+mgrIdentity  VARCHAR2(10),
+mgrStatus    NUMBER default 1 not null,
+CONSTRAINT manager_MGRID_PK PRIMARY KEY (mgrId)
+);
+
+INSERT INTO manager VALUES(mgr_seq.NEXTVAL,
+'愛油油',
+'good',
+'123',
+'1',
+1
+);
+
+INSERT INTO manager VALUES(mgr_seq.NEXTVAL,
+'油油',
+'hello',
+'123',
+'2',
+1
+);
+
+INSERT INTO manager VALUES(mgr_seq.NEXTVAL,
+'多喝水',
+'water',
+'123',
+'3',
+1
+);
+
+COMMIT;
+---------------------------------------------------------------
+create table memRecord
+(
+violationId   NUMBER(4) not null,
+memId         NUMBER(4) not null,
+isSuspended   NUMBER  not null,
+suspCat       VARCHAR2(1) default 0 not null,
+suspReason    VARCHAR2(300),
+suspStart     Timestamp,
+suspDays      NUMBER,
+rprtSrc       NUMBER,
+mgrId         NUMBER(4) not null,
+CONSTRAINT memRecord_violationId_PK PRIMARY KEY (violationId),
+CONSTRAINT memRecord_memId_fk  
+FOREIGN KEY (memId)
+REFERENCES MEMBER(memId),
+
+CONSTRAINT memRecord_mgrId_fk  
+FOREIGN KEY (mgrId)
+REFERENCES manager(mgrId)
+);
+
+INSERT INTO memRecord VALUES(record_seq.NEXTVAL,
+1003,
+1,
+1,
+'到處留不雅語言',
+TO_DATE('20010224','yyyymmdd'),
+5,
+2,
+7002
+);
+
+COMMIT;
+--------------------------------------------------------------------
+create table friend
+  (memId     NUMBER(4) not null,
+  friendId   NUMBER(4) not null,
+  friendRp   NUMBER(1));
+
+alter table friend
+  add constraint PK_FRIEND primary key (memId, friendId);
+
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1001, 1002, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1001, 1005, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1001, 1003, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1002, 1001, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1002, 1003, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1003, 1002, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1003, 1005, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1003, 1004, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1004, 1001, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1004, 1002, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1004, 1005, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1005, 1002, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1005, 1004, 1);
+INSERT INTO friend(memId, friendId, friendRp) VALUES(1005, 1003, 1);
+
+COMMIT;
+------------------------------------------------------
+create table memImproperRprt
+(
+irsnumber    number not null,
+violationId  number,
+reportNumber number,
+
+CONSTRAINT memImproperRprt_irsnumber_PK PRIMARY KEY (irsnumber),
+CONSTRAINT memImproperRprt_violationId_fk  
+FOREIGN KEY (violationId)
+REFERENCES memRecord(violationId)
+);
+
+INSERT INTO memImproperRprt VALUES(NotPr_seq.NEXTVAL,
+1,
+report_seq.NEXTVAL
+);
+COMMIT;

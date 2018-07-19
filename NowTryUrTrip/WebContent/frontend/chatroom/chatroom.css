@@ -1,0 +1,182 @@
+
+    @media only screen and (max-width: 540px) {
+        .chat-sidebar {
+            display: none !important;
+        }
+        .chat-popup {
+            display: none !important;
+        }
+    }
+    textarea {
+        resize:none;
+    }    
+    
+    .box {
+
+        position: fixed;
+        right: 20px;
+        bottom: 0px;
+        width: 220px;
+    }
+
+    .head
+     {
+        background: #3498db;
+        color: white;
+        padding: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px 5px 0px 0px;
+    }
+    
+    .chat-sidebar {
+        border-right: 1px solid;
+        border-left: 1px solid;
+        border-color:#ccc;
+        background: white;
+        height: 400px;
+        padding: 5px 0px;
+    }
+    
+    .sidebar-name {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 4px;
+        font-size: 12px;
+    }
+    
+    .sidebar-name span {
+        padding-left: 5px;
+    }
+    
+    .sidebar-name a {
+        display: block;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .sidebar-name:hover {
+        background-color: #e1e2e5;
+    }
+    
+    .sidebar-name img {
+        width: 32px;
+        height: 32px;
+        vertical-align: middle;
+    }
+    
+    .popup-box {
+        position: fixed;
+        bottom: -5px;
+        width: 220px;
+        background: white;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    .popup-head {
+        background: #3498db;
+        color: white;
+        padding: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px 5px 0px 0px;
+    }
+    
+    .msg-input {
+        width: 100%;
+        border: 1px solid white;
+        border-top: 1px solid #DDDDDD;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    .popup-head .popup-head-left {
+        float: left;
+    }
+    
+    .popup-head .popup-head-right {
+        float: right;
+        opacity: 0.5;
+    }
+    
+    .popup-head .popup-head-right a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .popup-box {
+        display: none;
+        position: fixed;
+        bottom: -5px;
+        width: 220px;
+        background: white;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    .popup-messages {
+        border-right: 1px solid;
+        border-left: 1px solid;
+        border-color:#ccc;
+        background: white;
+        height: 200px;
+        font-size: 12px;
+        padding: 15px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .msg-footer {
+        border-right: 1px solid;
+        border-left: 1px solid;
+        border-color:#ccc;
+    }    
+
+
+    .msg-a {
+        position: relative;
+        background: #FDE4CE;
+        padding: 10px;
+        min-height: 10px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+        border-radius: 5px;
+        word-wrap:break-word;        
+    }
+    
+    .msg-a:before {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border: 10px solid;
+        border-color: transparent #FDE4CE transparent transparent;
+        left: -20px;
+        top: 7px;
+        word-wrap:break-word;        
+    }
+    
+    .msg-b {
+        background: #EEF2E7;
+        padding: 10px;
+        min-height: 15px;
+        margin-bottom: 5px;
+        position: relative;
+        margin-left: 10px;
+        border-radius: 5px;
+        word-wrap:break-word;        
+    }
+    
+    .msg-b:after {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border: 10px solid;
+        border-color: transparent transparent transparent #EEF2E7;
+        right: -20px;
+        top: 7px;
+        word-wrap:break-word;        
+    }    
+

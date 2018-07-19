@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Title Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    .firstClass {
+        background-color: #F0FFFF;
+    }
+    
+    .oddClass {
+        background-color: #FCFCFC;
+    }
+    
+    .evenClass {
+        background-color: #F5DEB3;
+    }
+    
+    .chgClass {
+        background-color: #EEE685;
+    }
+    </style>
+</head>
+
+<body>
+    <form method="get" name="myForm1">
+        <table id="rspTable" border="1">
+        </table>
+        <br>
+        <input type="button" name="btnJsonServlet" id="btnJsonServlet" value="測試JsonServlet">
+        <br>
+    </form>
+    <script type="text/javascript">
+    $(document).ready( //  $(function(){......})
+        function test() {
+            $("#btnJsonServlet").click(function() {
+                $.ajax({
+                    type: "GET",
+                    header: 'Allow-Control-Allow-Origin: *',
+                    url: "https://maps.googleapis.com/maps/api/distancematrix/json?origins=41.43206,-81.38992|-33.86748,151.20699&destinations=New+York+City,NY&jsoncallback=?",
+                    // url: 'http://www.ilepb.gov.tw/api/ILEPB01001/format/JSON',
+                    // crossDomain: true,
+                    dataType: "json",
+                    data: {
+                        format: "json"
+                    },
+                    // xhrFields: {
+                    //     withCredentials: true
+                    // },
+                    jsonpCallback: "localJsonpCallback",
+                    success: function(data) {
+                        alert("success");
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                    	console.log(errorThrown);
+                        alert("error");
+                    }
+                })
+            });
+        })
+
+    function localJsonpCallback(json) {
+        if (!json.Error) {
+            console.log(json);
+        } else {
+            console.log(json);
+        }
+    }
+
+    function changeColor1() {
+        $(this).addClass("chgClass");
+    }
+
+    function changeColor2() {
+        $(this).removeClass("chgClass");
+    }
+
+    function creatQueryString() {
+        var queryString = {
+            action: "getJson",
+            name: "name"
+        };
+        return queryString;
+    }
+
+    function drawTable(oJson) {
+        var htmlStr = "<tr>";
+        for (var key in oJson[0]) {
+            htmlStr += "<td>" + key + "</td>";
+        }
+        htmlStr += "</tr>";
+        $("#rspTable").append(htmlStr);
+        var i = 0;
+        $.each(oJson, function() {
+            addTableRow(oJson[i].name, oJson[i].age, oJson[i].height);
+            i++;
+        });
+        $("tr:odd:not(tr:first)").addClass("oddClass");
+        $("tr:even").addClass("evenClass");
+        $("tr:not(tr:first)").hover(changeColor1, changeColor2);
+        //$("tr:first").removeClass("oddClass").addClass("firstClass").unbind("hover");
+    }
+
+    function addTableRow(name, age, height) {
+        var oTable = $("#rspTable").get(0);
+        var oTr = oTable.insertRow(oTable.rows.length);
+        var aText = new Array();
+        aText[0] = document.createTextNode(name);
+        aText[1] = document.createTextNode(age);
+        aText[2] = document.createTextNode(height);
+        for (var i = 0; i < aText.length; i++) {
+            var oTd = oTr.insertCell(i);
+            oTd.appendChild(aText[i]);
+        }
+    }
+    </script>
+</body>
+
+</html>

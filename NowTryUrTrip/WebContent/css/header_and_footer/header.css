@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/**
+ * 
+ * @authors 張中和 (you@example.org)
+ * @date    2017-04-12 09:02:00
+ * @version $Id$
+ */
+
+
+/*fh 表示 front header*/
+
+.fh {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    min-width: 320px;
+	z-index:1050;
+    /*margin-bottom: 15px;*/
+    /*min-height: 122px;*/
+    background-color: #0088b2;
+    /*border-color: #0088b2;*/
+}
+
+#bootstrap-overrides .fh-banner a {
+    /*    border: 1px solid;
+    border-radius: 5px;
+    padding: 12px;
+*/
+    color: white;
+    background-color: #0088b2;
+}
+
+#bootstrap-overrides .fh-banner-top {
+    position: relative;
+    top: 0px;
+}
+
+#bootstrap-overrides .fh-banner-bottom {
+    position: relative;
+    bottom: -20px;
+}
+
+#bootstrap-overrides .fh-banner a:focus,
+#bootstrap-overrides .fh-banner a:hover,
+#bootstrap-overrides .fh-banner a:active {
+    background-color: #3baad2;
+}
+
+#bootstrap-overrides .logo {
+    padding: 15px 30px;
+    min-width: 245px;
+    position: relative;
+    background-color: #3baad2;
+}
+
+#bootstrap-overrides .logo:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#bootstrap-overrides .logo-icon {
+    float: left;
+    max-width: 100px;
+    position: relative;
+}
+
+#bootstrap-overrides .logo-text {
+    float: left;
+    border-bottom: solid 1px;
+    padding-top: 78px;
+    padding-bottom: 2px;
+    margin-left: -40px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #fff;
+    width: 124px;
+}
+
+.content-cap {
+    margin-bottom: 15px;
+}
+
+.content {
+    min-height: 800px;
+    background-color: #d0d8d0;
+}

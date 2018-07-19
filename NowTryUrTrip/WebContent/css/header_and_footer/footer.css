@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/**
+ * 
+ * @authors 張中和 (you@example.org)
+ * @date    2017-04-12 09:02:00
+ * @version $Id$
+ */
+
+#bootstrap-overrides .ff {
+    /*position: fixed;*/
+	padding-top: 15px;
+    bottom: 0px;
+    width: 100%;
+    margin-top: 15px;
+    	color: white;
+    background-color: #0088b2;
+
+}
+
+#bootstrap-overrides .ff-content {
+/*	color: white;
+    background-color: #0088b2;
+*/}
+
+.content::after {
+    content: "";
+    height: 0px;
+}

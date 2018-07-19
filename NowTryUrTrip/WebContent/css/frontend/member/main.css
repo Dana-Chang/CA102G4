@@ -1,0 +1,19 @@
+.select {
+	float: left;
+	margin: 2px;
+}
+
+.aa {
+	height: 32px;
+}
+
+.tt {
+	width: 250px;
+}
+
+.top {
+	top: 22%;
+	left: 40%;
+	position: absolute;
+	z-index: 10;
+}

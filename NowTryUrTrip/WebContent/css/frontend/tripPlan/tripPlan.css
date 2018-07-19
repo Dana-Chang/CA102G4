@@ -1,0 +1,180 @@
+﻿@charset "UTF-8";
+
+/**
+ * 
+ * @authors 張中和 (you@example.org)
+ * @date    2017-04-12 09:02:00
+ * @version $Id$
+ */
+
+
+/*fh 表示 front header*/
+
+/*全部欄位*/
+#bootstrap-overrides>.content>.row {
+    padding-top: 15px;
+}
+
+#bootstrap-overrides .pager {
+    margin: 0px auto;
+}
+
+#bootstrap-overrides .pagination {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+    /*調整page-header*/
+#bootstrap-overrides .page-header {
+    margin-top: 0px;
+}
+
+    /*顯示長寬固定比例*/
+#bootstrap-overrides .fixRatio {
+/*     margin-bottom: 15px; */
+    width: 100%;
+    position: relative;
+}
+
+#bootstrap-overrides .fixRatio:after {
+    display: block;
+    content: '';
+}
+
+#bootstrap-overrides .fixRatio80:after {
+    padding-top: 80%;
+}
+
+#bootstrap-overrides .fixRatio70:after {
+    padding-top: 70%;
+}
+
+#bootstrap-overrides .fixRatio50:after {
+    padding-top: 50%;
+}
+
+    /*讓捲軸可以正常顯示*/
+#bootstrap-overrides .scrollFine {
+    margin-bottom: -20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #b4c8da;
+    overflow-y: scroll;    
+}
+
+#bootstrap-overrides .panel-body {
+    background-color: #c6d8c5;
+}
+
+#bootstrap-overrides a {
+	text-decoration: none;
+}
+
+/* 左邊搜尋欄 */
+#bootstrap-overrides .input-group {
+    margin-bottom: 15px;
+    border-collapse: collapse;
+}
+
+#bootstrap-overrides .input-group-btn {
+    background-color: #ccc;
+    font-size: 12px;
+}
+
+#bootstrap-overrides .list-group {
+    margin-bottom: 0px;
+}
+
+#bootstrap-overrides .list-group-item.active {
+    background-color: #0088b2;
+}
+
+
+    /*自訂badge*/
+#bootstrap-overrides .badge-cust {
+    margin-right: 15px;
+}
+
+
+/* 中間地圖與地點詳情 */
+#bootstrap-overrides .carousel-control.outside {
+    top: 25%;
+    bottom: 65%;
+}
+
+#bootstrap-overrides .carousel-control.outside.right {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, .0001) 0, rgb(25, 79, 130) 100%);
+}
+
+#bootstrap-overrides .carousel-control.outside.left {
+    background-image: linear-gradient(to right, rgb(25, 79, 130) 0, rgba(0, 0, 0, .0001) 100%);
+}
+
+#bootstrap-overrides .carousel-indicators.outside {
+    bottom: 1px;
+}
+
+#bootstrap-overrides .carousel-indicators.outside .active {
+    background-color: #d65c5c;
+}
+
+#bootstrap-overrides .carousel-indicators.outside li {
+    border: 1px solid #d65c5c;
+}
+
+#bootstrap-overrides .carousel-caption.outside {
+	background-color: hsla(296, 18%, 71%, 0.8);
+    border-radius: 7px;
+}
+
+#bootstrap-overrides .carousel-caption.outside>p{
+	margin: 0px 30px 10px;
+}
+
+    /* 分隔地點資訊 */
+#bootstrap-overrides #spotDesc {
+    border-top: solid 2px #0088b2;
+    border-bottom: solid 2px #0088b2;
+}
+
+    /* 行程摘要 */
+#bootstrap-overrides .carousel-caption.outside p{
+	color: hsla(112, 72%, 95%, 1);;
+	text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    background-color: inherit;
+    border: inherit;
+}
+
+    /* 行程摘要按鈕 */
+#bootstrap-overrides .spotSummaryBtn {
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    margin-top: 80%;
+}
+
+#bootstrap-overrides .spotSummaryBtn a{
+	position: relative;
+    bottom: 68px;
+    z-index: 20;
+}
+
+#bootstrap-overrides #spotSummaryFrame {
+	bottom: 10px;
+}
+
+#bootstrap-overrides #spotSummaryCnt {
+	background-color: inherit;
+    margin-bottom: 40px;
+}
+
+    /*讓空panel droppable*/
+#bootstrap-overrides [id^='sortableDay'] {
+    padding: 15px 0px;
+}

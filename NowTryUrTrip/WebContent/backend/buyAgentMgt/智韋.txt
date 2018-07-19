@@ -1,0 +1,24 @@
+<td><c:forEach var="memberVO" items="${memberSvc.all}">
+                    <c:if test="${pointTransactionVO.startPoint==memberVO.memBop && pointTransactionVO.memId==memberVO.memId}">
+	                    	【${memberVO.memBop}】
+                    </c:if>
+                </c:forEach></td>
+			<td><c:forEach var="memberVO" items="${memberSvc.all}">
+                    <c:if test="${pointTransactionVO.startCash==memberVO.memCb && pointTransactionVO.memId==memberVO.memId}">
+	                    	【${memberVO.memCb}】
+                    </c:if>
+                </c:forEach></td>
+                
+                
+                
+                
+                
+                抓其他VO資料
+                
+                
+                
+                con.setAutoCommit(false);
+                
+                con.setAutoCommit(true);
+                                
+                con.rollback();

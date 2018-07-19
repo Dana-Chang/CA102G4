@@ -1,0 +1,9 @@
+.day_close {
+	float: right;
+	cursor: pointer;
+}
+ 
+.day_add {
+	float: right;
+	cursor: pointer;
+}
