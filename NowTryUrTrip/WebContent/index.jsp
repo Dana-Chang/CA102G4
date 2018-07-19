@@ -40,6 +40,7 @@
                         <li data-target="#carousel-id" data-slide-to="6" class=""></li>
                         <li data-target="#carousel-id" data-slide-to="7" class=""></li>
                         <li data-target="#carousel-id" data-slide-to="8" class=""></li>
+                        <li data-target="#carousel-id" data-slide-to="9" class=""></li>
                     </ol>
                     <!-- 幻燈片主圖區 -->
                     <div class="carousel-inner">
